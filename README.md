@@ -54,9 +54,7 @@ Follow the full video tutorial on <a href="https://youtu.be/RZ6Rk_g2GLY" target=
 
 6. [Database Schema](#-database-schema)
 
-7. [Deployment](#-deployment)
-
-8. [Course & Channel](#-course--channel)
+7. [Course & Channel](#-course--channel)
 
 ---
 
@@ -427,39 +425,6 @@ The API will be available at: [http://localhost:5001](http://localhost:5001)
 
 ---
 
-## ☁️ Deployment
-
-### Deploy on Railway
-
-1. Push your code to GitHub
-
-2. Go to [railway.app](https://railway.app)
-
-3. Create a new project and import your repository
-
-4. Add PostgreSQL service
-
-5. Set environment variables:
-   - `DATABASE_URL` (automatically provided by Railway)
-   - `JWT_SECRET` (generate a secure random string)
-   - `PORT` (Railway will set this automatically)
-
-6. Deploy your application
-
-Your API will be live on a custom Railway subdomain!
-
-### Alternative Deployment Options
-
-- [Render](https://render.com/) - Full-stack deployment with PostgreSQL
-
-- [Heroku](https://www.heroku.com/) - Platform-as-a-service deployment
-
-- [DigitalOcean App Platform](https://www.digitalocean.com/products/app-platform) - Simple app deployment
-
-- [AWS](https://aws.amazon.com/) - Enterprise-grade cloud hosting
-
----
-
 ## 🎓 Course & Channel
 
 ### Learn More with Pedro Technologies
@@ -485,8 +450,6 @@ Follow along for more backend tutorials, full-stack development, and practical c
 - [JWT.io](https://jwt.io/) - JWT token decoder and debugger
 
 - [Zod Documentation](https://zod.dev/)
-
-- [Railway Deployment Guide](https://docs.railway.app/)
 
 ---
 
