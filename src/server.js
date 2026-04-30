@@ -12,6 +12,40 @@ connectDB(); // Load environment variables from .env file
 
 const app = express();
 
+const defaultAllowedOrigins = [
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
+];
+
+const allowedOrigins = [
+  ...defaultAllowedOrigins,
+  ...(process.env.CLIENT_ORIGIN || "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean),
+];
+
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+  const isAllowedOrigin =
+    !origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin);
+
+  if (isAllowedOrigin) {
+    res.setHeader("Access-Control-Allow-Origin", origin || "*");
+  }
+
+  res.setHeader("Vary", "Origin");
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Max-Age", "86400");
+
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
+
 //body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
